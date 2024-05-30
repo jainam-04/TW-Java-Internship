@@ -81,6 +81,8 @@ public class AdminLogin extends JFrame implements ActionListener {
             if(e.getSource() == buttonSubmit){
                 if(username.equals("Jainam Rupani") && password.equals("Rupani@0410")){
                     JOptionPane.showMessageDialog(this, "You logged in successfully!!", "Message", JOptionPane.INFORMATION_MESSAGE);
+                    new VoterLogin();
+                    setVisible(false);
                 }
                 else if(username.equals("") || password.equals("")){
                     JOptionPane.showMessageDialog(this, "Please fill all the fields!!", "Error", JOptionPane.ERROR_MESSAGE);
