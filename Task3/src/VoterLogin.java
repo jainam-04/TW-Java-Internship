@@ -88,6 +88,7 @@ public class VoterLogin extends JFrame implements ActionListener {
         String password = String.valueOf(passwordField1.getPassword());
         try{
             if(e.getSource() == buttonRegister){
+                new VoterRegister1();
                 setVisible(false);
             }
             else if(e.getSource() == buttonSubmit){
