@@ -186,6 +186,7 @@ public class VoterRegister1 extends JFrame implements ActionListener {
                         String query = "insert into voter_registration_1 values('" + formNo + "', '" + name + "', '" + emailID + "', '" + mobileNo + "', '" + dateOfBirth + "', '" + gender + "', '" + age + "', '" + aadhaarNo + "')";
                         connection.statement.executeUpdate(query);
                         JOptionPane.showMessageDialog(this, "Data inserted successfully!!", "Message", JOptionPane.INFORMATION_MESSAGE);
+                        new VoterRegister2(formNo);
                         setVisible(false);
                     }
                     catch(Exception E){
