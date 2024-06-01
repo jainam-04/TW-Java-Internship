@@ -180,6 +180,12 @@ public class VoterRegister1 extends JFrame implements ActionListener {
                 if(name.equals("") || emailID.equals("") || mobileNo.equals("") || dateOfBirth.equals("") || age.equals("") || aadhaarNo.equals("")){
                     JOptionPane.showMessageDialog(this, "Please fill all the fields!!", "Error", JOptionPane.ERROR_MESSAGE);
                 }
+                else if(mobileNo.length() != 10){
+                    JOptionPane.showMessageDialog(this, "Please enter your mobile number correctly!!", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+                else if(aadhaarNo.length() != 12){
+                    JOptionPane.showMessageDialog(this, "Please enter your aadhaar number correctly!!", "Error", JOptionPane.ERROR_MESSAGE);
+                }
                 else{
                     try{
                         JDBCConnection connection = new JDBCConnection();
