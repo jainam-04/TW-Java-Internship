@@ -17,7 +17,7 @@ public class VoterRegister2 extends JFrame implements ActionListener {
     JTextField textField1, textField2, textField3, textField4, textField5, textField6;
     JRadioButton radioButton1, radioButton2;
     ButtonGroup buttonGroup1;
-    JButton buttonSubmit, buttonNext;
+    JButton buttonSubmit, buttonBack;
     VoterRegister2(String formNo){
         this.formNo = formNo;
 
@@ -155,13 +155,13 @@ public class VoterRegister2 extends JFrame implements ActionListener {
         buttonSubmit.addActionListener(this);
         add(buttonSubmit);
 
-        buttonNext = new JButton("Next");
-        buttonNext.setBounds(100, 670, 100, 40);
-        buttonNext.setBackground(Color.BLACK);
-        buttonNext.setForeground(Color.WHITE);
-        buttonNext.setFont(new Font("Arial", Font.BOLD, 20));
-        buttonNext.addActionListener(this);
-        add(buttonNext);
+        buttonBack = new JButton("Back");
+        buttonBack.setBounds(100, 670, 100, 40);
+        buttonBack.setBackground(Color.BLACK);
+        buttonBack.setForeground(Color.WHITE);
+        buttonBack.setFont(new Font("Arial", Font.BOLD, 20));
+        buttonBack.addActionListener(this);
+        add(buttonBack);
 
         UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("Arial", Font.BOLD, 20)));
         setLayout(null);
@@ -228,7 +228,7 @@ public class VoterRegister2 extends JFrame implements ActionListener {
                     }
                 }
             }
-            else if(e.getSource() == buttonNext){
+            else if(e.getSource() == buttonBack){
                 new VoterRegister1();
                 setVisible(false);
             }
