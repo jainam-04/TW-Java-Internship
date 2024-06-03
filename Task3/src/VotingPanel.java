@@ -5,13 +5,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class VotingPanel extends JFrame implements ActionListener {
-    JLabel label1, label2, label3, label4, label5, label6, label7;
+    JLabel label1, label2, label3, label4, label5;
     JTextField textField1, textField2, textField3;
-    JPasswordField passwordField1;
     JRadioButton radioButtonBJP, radioButtonINC, radioButtonAAP, radioButtonBSP, radioButtonCPI, radioButtonNPP;
     ButtonGroup buttonGroup1;
-    JButton buttonSubmit, buttonCancel;
-    VotingPanel(){
+    JButton buttonSubmit, buttonCancel, buttonResult;
+    String voterId;
+    VotingPanel(String voterId){
+        this.voterId = voterId;
+
         label1 = new JLabel("Welcome to the voting panel");
         label1.setBounds(300, 20, 500, 40);
         label1.setForeground(Color.BLACK);
@@ -48,61 +50,43 @@ public class VotingPanel extends JFrame implements ActionListener {
         textField2.setFont(new Font("Arial", Font.BOLD, 16));
         add(textField2);
 
-        label5 = new JLabel("Password :- ");
-        label5.setBounds(150, 240, 120, 30);
-        label5.setForeground(Color.BLACK);
-        label5.setFont(new Font("Arial", Font.BOLD, 20));
-        add(label5);
-
-        passwordField1 = new JPasswordField();
-        passwordField1.setBounds(400, 240, 300, 30);
-        passwordField1.setForeground(Color.BLACK);
-        passwordField1.setFont(new Font("Arial", Font.BOLD, 16));
-        add(passwordField1);
-
-        label6 = new JLabel("Enter your email's password to send you the information");
-        label6.setBounds(200, 280, 500, 30);
-        label6.setForeground(Color.BLACK);
-        label6.setFont(new Font("Arial", Font.ITALIC, 18));
-        add(label6);
-
         radioButtonAAP = new JRadioButton("Aam Aadmi Party (AAP)");
-        radioButtonAAP.setBounds(150, 340, 250, 30);
+        radioButtonAAP.setBounds(150, 280, 250, 30);
         radioButtonAAP.setForeground(Color.BLACK);
         radioButtonAAP.setFont(new Font("Arial", Font.BOLD, 20));
         radioButtonAAP.addActionListener(this);
         add(radioButtonAAP);
 
         radioButtonBJP = new JRadioButton("Bhartiya Janta Party (BJP)");
-        radioButtonBJP.setBounds(500, 340, 300, 30);
+        radioButtonBJP.setBounds(500, 280, 300, 30);
         radioButtonBJP.setForeground(Color.BLACK);
         radioButtonBJP.setFont(new Font("Arial", Font.BOLD, 20));
         radioButtonBJP.addActionListener(this);
         add(radioButtonBJP);
 
         radioButtonBSP = new JRadioButton("Bahujan Samaj Party (BSP)");
-        radioButtonBSP.setBounds(150, 400, 300, 30);
+        radioButtonBSP.setBounds(150, 340, 300, 30);
         radioButtonBSP.setForeground(Color.BLACK);
         radioButtonBSP.setFont(new Font("Arial", Font.BOLD, 20));
         radioButtonBSP.addActionListener(this);
         add(radioButtonBSP);
 
         radioButtonCPI = new JRadioButton("Communist Party of India (CPI)");
-        radioButtonCPI.setBounds(500, 400, 320, 30);
+        radioButtonCPI.setBounds(500, 340, 320, 30);
         radioButtonCPI.setFont(new Font("Arial", Font.BOLD, 20));
         radioButtonCPI.setForeground(Color.BLACK);
         radioButtonCPI.addActionListener(this);
         add(radioButtonCPI);
 
         radioButtonINC = new JRadioButton("Indian National Congress (INP)");
-        radioButtonINC.setBounds(150, 460, 320, 30);
+        radioButtonINC.setBounds(150, 400, 320, 30);
         radioButtonINC.setFont(new Font("Arial", Font.BOLD, 20));
         radioButtonINC.setForeground(Color.BLACK);
         radioButtonINC.addActionListener(this);
         add(radioButtonINC);
 
         radioButtonNPP = new JRadioButton("National People's Party (NPP)");
-        radioButtonNPP.setBounds(500, 460, 320, 30);
+        radioButtonNPP.setBounds(500, 400, 320, 30);
         radioButtonNPP.setForeground(Color.BLACK);
         radioButtonNPP.setFont(new Font("Arial", Font.BOLD, 20));
         radioButtonNPP.addActionListener(this);
@@ -116,20 +100,20 @@ public class VotingPanel extends JFrame implements ActionListener {
         buttonGroup1.add(radioButtonNPP);
         buttonGroup1.add(radioButtonBSP);
 
-        label7 = new JLabel("Your vote goes to :- ");
-        label7.setBounds(150, 560, 200, 30);
-        label7.setFont(new Font("Arial", Font.BOLD, 20));
-        label7.setForeground(Color.BLACK);
-        add(label7);
+        label5 = new JLabel("Your vote goes to :- ");
+        label5.setBounds(150, 500, 200, 30);
+        label5.setFont(new Font("Arial", Font.BOLD, 20));
+        label5.setForeground(Color.BLACK);
+        add(label5);
 
         textField3 = new JTextField();
-        textField3.setBounds(400, 560, 350, 30);
+        textField3.setBounds(400, 500, 350, 30);
         textField3.setForeground(Color.BLACK);
         textField3.setFont(new Font("Arial", Font.BOLD, 20));
         add(textField3);
 
         buttonSubmit = new JButton("Submit");
-        buttonSubmit.setBounds(350, 660, 100, 40);
+        buttonSubmit.setBounds(350, 600, 100, 40);
         buttonSubmit.setBackground(Color.GREEN);
         buttonSubmit.setForeground(Color.BLACK);
         buttonSubmit.setFont(new Font("Arial", Font.BOLD, 20));
@@ -137,12 +121,20 @@ public class VotingPanel extends JFrame implements ActionListener {
         add(buttonSubmit);
 
         buttonCancel = new JButton("Cancel");
-        buttonCancel.setBounds(550, 660, 100, 40);
+        buttonCancel.setBounds(550, 600, 100, 40);
         buttonCancel.setBackground(Color.RED);
         buttonCancel.setForeground(Color.WHITE);
         buttonCancel.setFont(new Font("Arial", Font.BOLD, 20));
         buttonCancel.addActionListener(this);
         add(buttonCancel);
+
+        buttonResult = new JButton("See Results");
+        buttonResult.setBounds(430, 670, 150, 40);
+        buttonResult.setBackground(Color.CYAN);
+        buttonResult.setForeground(Color.BLACK);
+        buttonResult.setFont(new Font("Arial", Font.BOLD, 20));
+        buttonResult.addActionListener(this);
+        add(buttonResult);
 
         UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("Arial", Font.BOLD, 20)));
         setLayout(null);
@@ -156,7 +148,6 @@ public class VotingPanel extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String name = textField1.getText();
         String email = textField2.getText();
-        String password = String.valueOf(passwordField1.getPassword());
         String vote = textField3.getText();
         try {
             if (e.getSource() == radioButtonINC) {
@@ -173,16 +164,15 @@ public class VotingPanel extends JFrame implements ActionListener {
                 textField3.setText("National People's Party (NPP)");
             }
             else if(e.getSource() == buttonSubmit){
-                if(name.equals("") || email.equals("") || password.equals("")){
+                if(name.equals("") || email.equals("")){
                     JOptionPane.showMessageDialog(this, "Please fill all the fields!!", "Error", JOptionPane.ERROR_MESSAGE);
                 }
                 else{
                     try{
                         JDBCConnection connection = new JDBCConnection();
-                        String query = "insert into voting_panel values('" + name + "', '" + email + "', '" + vote + "')";
+                        String query = "insert into voting_panel values('" + name + "', '" + email + "', '" + vote + "', '" + voterId + "')";
                         connection.statement.executeUpdate(query);
                         JOptionPane.showMessageDialog(this, "Your vote is successfully gone to " + vote + "!", "Message", JOptionPane.INFORMATION_MESSAGE);
-                        System.exit(0);
                     }
                     catch(Exception E){
                         E.printStackTrace();
@@ -199,6 +189,6 @@ public class VotingPanel extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new VotingPanel();
+        new VotingPanel(null);
     }
 }

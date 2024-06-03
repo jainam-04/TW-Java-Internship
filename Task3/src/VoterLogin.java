@@ -102,7 +102,7 @@ public class VoterLogin extends JFrame implements ActionListener {
                         ResultSet resultSet = connection.statement.executeQuery(query);
                         if(resultSet.next()){
                             JOptionPane.showMessageDialog(this, "You logged in successfully!!", "Message", JOptionPane.INFORMATION_MESSAGE);
-                            new VotingPanel();
+                            new VotingPanel(voterID);
                             setVisible(false);
                         }
                         else{
