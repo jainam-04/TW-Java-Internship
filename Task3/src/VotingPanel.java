@@ -182,6 +182,9 @@ public class VotingPanel extends JFrame implements ActionListener {
             else if(e.getSource() == buttonCancel){
                 System.exit(0);
             }
+            else if(e.getSource() == buttonResult){
+                new VotingResults(vote);
+            }
         }
         catch(Exception E){
             E.printStackTrace();
