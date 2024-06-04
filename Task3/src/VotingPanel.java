@@ -139,7 +139,7 @@ public class VotingPanel extends JFrame implements ActionListener {
         UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("Arial", Font.BOLD, 20)));
         setLayout(null);
         setSize(1000, 800);
-//        setUndecorated(true);
+        setUndecorated(true);
         setLocation(300, 30);
         setVisible(true);
     }

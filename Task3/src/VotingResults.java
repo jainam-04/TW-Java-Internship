@@ -63,7 +63,7 @@ public class VotingResults extends JFrame implements ActionListener {
 
         setLayout(null);
         setSize(700, 700);
-//        setUndecorated(true);
+        setUndecorated(true);
         setLocation(400, 100);
         setVisible(true);
     }

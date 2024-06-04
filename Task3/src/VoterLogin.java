@@ -77,7 +77,7 @@ public class VoterLogin extends JFrame implements ActionListener {
         UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("Arial", Font.BOLD, 20)));
         setLayout(null);
         setSize(850, 480);
-//        setUndecorated(true);
+        setUndecorated(true);
         setLocation(450, 200);
         setVisible(true);
     }

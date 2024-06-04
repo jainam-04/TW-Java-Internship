@@ -167,7 +167,7 @@ public class VoterRegister2 extends JFrame implements ActionListener {
         setLayout(null);
         getContentPane().setBackground(new Color(38, 75, 101));
         setSize(1000, 800);
-//        setUndecorated(true);
+        setUndecorated(true);
         setLocation(300, 30);
         setVisible(true);
     }
