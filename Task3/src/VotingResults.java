@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 public class VotingResults extends JFrame implements ActionListener {
     String vote;
     JLabel label1, label2, label3;
+    JButton buttonExit;
     VotingResults(String vote){
         this.vote = vote;
 
@@ -52,6 +53,14 @@ public class VotingResults extends JFrame implements ActionListener {
             e.printStackTrace();
         }
 
+        buttonExit = new JButton("Exit");
+        buttonExit.setBounds(250, 550, 100, 40);
+        buttonExit.setBackground(Color.BLACK);
+        buttonExit.setForeground(Color.WHITE);
+        buttonExit.setFont(new Font("Arial", Font.BOLD, 20));
+        buttonExit.addActionListener(this);
+        add(buttonExit);
+
         setLayout(null);
         setSize(700, 700);
 //        setUndecorated(true);
@@ -61,7 +70,14 @@ public class VotingResults extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        try{
+            if(e.getSource() == buttonExit){
+                setVisible(false);
+            }
+        }
+        catch(Exception E){
+            E.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
