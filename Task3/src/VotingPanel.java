@@ -149,6 +149,12 @@ public class VotingPanel extends JFrame implements ActionListener {
         String name = textField1.getText();
         String email = textField2.getText();
         String vote = textField3.getText();
+        int countAAP = 0;
+        int countBJP = 0;
+        int countBSP = 0;
+        int countCPI = 0;
+        int countINC = 0;
+        int countNPP = 0;
         try {
             if (e.getSource() == radioButtonINC) {
                 textField3.setText("Indian National Congress (INC)");
@@ -172,6 +178,36 @@ public class VotingPanel extends JFrame implements ActionListener {
                         JDBCConnection connection = new JDBCConnection();
                         String query = "insert into voting_panel values('" + name + "', '" + email + "', '" + vote + "', '" + voterId + "')";
                         connection.statement.executeUpdate(query);
+                        if(radioButtonAAP.isSelected()){
+                            countAAP += 1;
+                            String query1 = "update voting_results set vote_count = '" + countAAP + "' where (vote = '" + vote + "')";
+                            connection.statement.executeUpdate(query1);
+                        }
+                        else if(radioButtonBJP.isSelected()){
+                            countBJP += 1;
+                            String query1 = "update voting_results set vote_count = '" + countBJP + "' where (vote = '" + vote + "')";
+                            connection.statement.executeUpdate(query1);
+                        }
+                        else if(radioButtonBSP.isSelected()){
+                            countBSP += 1;
+                            String query1 = "update voting_results set vote_count = '" + countBSP + "' where ('vote = '" + vote + "')";
+                            connection.statement.executeUpdate(query1);
+                        }
+                        else if(radioButtonCPI.isSelected()){
+                            countCPI += 1;
+                            String query1 = "update voting_results set vote_count = '" + countCPI + "' where ('vote = '" + vote + "')";
+                            connection.statement.executeUpdate(query1);
+                        }
+                        else if(radioButtonINC.isSelected()){
+                            countINC += 1;
+                            String query1 = "update voting_results set vote_count = '" + countINC + "' where (vote = '" + vote + "')";
+                            connection.statement.executeUpdate(query1);
+                        }
+                        else if(radioButtonNPP.isSelected()){
+                            countNPP += 1;
+                            String query1 = "update voting_results set vote_count = '" + countNPP + "' where (vote = '" + vote + "')";
+                            connection.statement.executeUpdate(query1);
+                        }
                         JOptionPane.showMessageDialog(this, "Your vote is successfully gone to " + vote + "!", "Message", JOptionPane.INFORMATION_MESSAGE);
                     }
                     catch(Exception E){
